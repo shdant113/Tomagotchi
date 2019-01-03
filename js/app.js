@@ -1,34 +1,33 @@
 // console.log(tomagatchi);
 
-// Create class Tomagatchi
 class Tomagatchi {
-	constructor(hunger, sleepiness, boredom, age) {
-		this.hunger = hunger;
-		this.sleepiness = sleepiness;
-		this.boredom = boredom;
-		this.age = age;
+	constructor() {
+		this.hunger = 0;
+		this.sleepiness = 0;
+		this.boredom = 0;
+		this.age = 0;
 	}
 }
 
+// zatchi = {
+// 	hunger: 0,
+// 	sleepiness: 0,
+// 	boredom: 0,
+// 	age: 0
+// }
+
 let zatchi = new Tomagatchi();
 
-zatchi = {
-	hunger: 0,
-	sleepiness: 0,
-	boredom: 0,
-	age: 0
-}
 let hungerText = $('#hunger');
 let sleepinessText = $('#sleepiness');
 let boredomText = $('#boredom');
 let ageText = $('#age');
 
-let newHunger = zatchi.hunger;
-let newSleepiness = zatchi.sleepiness;
-let newBoredom = zatchi.boredom;
-let newAge = zatchi.age;
-
 const game = {
+	newHunger: zatchi.hunger,
+	newSleepiness: zatchi.sleepiness,
+	newBoredom: zatchi.boredom,
+	newAge: zatchi.age,
 	startGame() {
 		// name your pet!
 		// display (pet's name) + (statistics)
@@ -45,8 +44,11 @@ const game = {
 			if (zatchi.hunger === 10) {
 				clearInterval(newHunger);
 				alert('Your pet died!');
+			// } 
+			// if (zatchi.hunger <= -1) {
+			// 	alert('Your pet is full!');
 			} else {
-				hungerText.text(`HUNGER: ${zatchi.hunger}`);
+				hungerText.text(`Hunger: ${zatchi.hunger}`);
 			}
 		}, 20000)
 	},
@@ -57,8 +59,11 @@ const game = {
 			if (zatchi.sleepiness === 10) {
 				clearInterval(newSleepiness);
 				alert('Your pet died!');
+			// } 
+			// if (zatchi.sleepiness <= -1) {
+			// 	alert('Your pet is already well rested!')
 			} else {
-				sleepinessText.text(`SLEEPINESS: ${zatchi.sleepiness}`);
+				sleepinessText.text(`Sleepiness: ${zatchi.sleepiness}`);
 			}
 		}, 40000)
 	},
@@ -69,8 +74,11 @@ const game = {
 			if (zatchi.boredom === 10) {
 				clearInterval(newBoredom);
 				alert('Your pet died!');
+			// } 
+			// if (zatchi.boredom <= -1) {
+			// 	alert('Your pet does not need to play more!')
 			} else {
-				boredomText.text(`BOREDOM: ${zatchi.boredom}`)
+				boredomText.text(`Boredom: ${zatchi.boredom}`)
 			}
 		}, 100000)
 	},
@@ -78,7 +86,7 @@ const game = {
 	zatchiAge() {
 		newAge = setInterval(function () {
 			zatchi.age++;
-			ageText.text(`AGE: ${zatchi.age}`)
+			ageText.text(`Age: ${zatchi.age}`)
 		}, 600000)
 	}
 }
@@ -87,20 +95,29 @@ game.startGame();
 
 $('#hungerButton').on('click', () => {
 	zatchi.hunger--
-	hungerText.text(`HUNGER: ${zatchi.hunger}`)
+	hungerText.text(`Hunger: ${zatchi.hunger}`)
 });
 
-$('#sleepinessButton').on('click', () => {
+$('#sleepinessButton').on('click', (e) => {
 	zatchi.sleepiness--
-	sleepinessText.text(`SLEEPINESS: ${zatchi.sleepiness}`)
+	sleepinessText.text(`Sleepiness: ${zatchi.sleepiness}`)
+	// background-color: gray;
+	$('body').css('background-color','gray');
 });
 
 $('#boredomButton').on('click', () => {
 	zatchi.boredom--
-	boredomText.text(`BOREDOM: ${zatchi.boredom}`)
+	boredomText.text(`Boredom: ${zatchi.boredom}`)
 });
 
-
+$('form').on('submit', (e) => {
+	let val = ($('#input-space').val())
+	$('h1').text(val);
+	e.preventDefault();
+	$('#hungerButton').text(`Feed ${val}!`);
+	$('#boredomButton').text(`Play with ${val}!`);
+	$('#sleepinessButton').text(`Put ${val} to bed!`)
+})
 
 
 
