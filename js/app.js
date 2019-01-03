@@ -8,3 +8,5 @@ class Tomagatchi {
 		this.boredom = boredom;
 	}
 }
+
+let zatchi = new Tomagatchi;
