@@ -2,10 +2,11 @@
 
 // Create class Tomagatchi
 class Tomagatchi {
-	constructor(hunger, sleepiness, boredom) {
+	constructor(hunger, sleepiness, boredom, age) {
 		this.hunger = hunger;
 		this.sleepiness = sleepiness;
 		this.boredom = boredom;
+		this.age = age;
 	}
 }
 
@@ -13,13 +14,9 @@ let zatchi = new Tomagatchi();
 
 zatchi = {
 	hunger: 0,
-		// increase hunger by 1 every 2 minutes
 	sleepiness: 0,
-		// increase sleepiness by 1 every 3 minutes
 	boredom: 0,
-		// increase boredom by 1 every 6 minutes
 	age: 0
-		// increase age by 1 every 10 minutes
 }
 let hungerText = $('#hunger');
 let sleepinessText = $('#sleepiness');
@@ -88,7 +85,20 @@ const game = {
 
 game.startGame();
 
+$('#hungerButton').on('click', () => {
+	zatchi.hunger--
+	hungerText.text(`HUNGER: ${zatchi.hunger}`)
+});
 
+$('#sleepinessButton').on('click', () => {
+	zatchi.sleepiness--
+	sleepinessText.text(`SLEEPINESS: ${zatchi.sleepiness}`)
+});
+
+$('#boredomButton').on('click', () => {
+	zatchi.boredom--
+	boredomText.text(`BOREDOM: ${zatchi.boredom}`)
+});
 
 
 
