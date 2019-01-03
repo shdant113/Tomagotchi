@@ -78,7 +78,7 @@ const game = {
 			// if (zatchi.boredom <= -1) {
 			// 	alert('Your pet does not need to play more!')
 			} else {
-				boredomText.text(`Boredom: ${zatchi.boredom}`)
+				boredomText.text(`Boredom: ${zatchi.boredom}`);
 			}
 		}, 100000)
 	},
@@ -86,7 +86,7 @@ const game = {
 	zatchiAge() {
 		newAge = setInterval(function () {
 			zatchi.age++;
-			ageText.text(`Age: ${zatchi.age}`)
+			ageText.text(`Age: ${zatchi.age}`);
 		}, 600000)
 	}
 }
@@ -94,20 +94,25 @@ const game = {
 game.startGame();
 
 $('#hungerButton').on('click', () => {
-	zatchi.hunger--
-	hungerText.text(`Hunger: ${zatchi.hunger}`)
+	zatchi.hunger--;
+	hungerText.text(`Hunger: ${zatchi.hunger}`);
+	$('#zatchi').velocity('callout.tada');
 });
 
 $('#sleepinessButton').on('click', (e) => {
-	zatchi.sleepiness--
-	sleepinessText.text(`Sleepiness: ${zatchi.sleepiness}`)
+	zatchi.sleepiness--;
+	sleepinessText.text(`Sleepiness: ${zatchi.sleepiness}`);
 	// background-color: gray;
-	$('body').css('background-color','gray');
+	// $('body').css('background-color','gray');
+	$('#zatchi').velocity('transition.whirlOut');
+	$('#zatchi').velocity('transition.swoopIn');
 });
 
 $('#boredomButton').on('click', () => {
-	zatchi.boredom--
-	boredomText.text(`Boredom: ${zatchi.boredom}`)
+	zatchi.boredom--;
+	boredomText.text(`Boredom: ${zatchi.boredom}`);
+	$('#zatchi').velocity("callout.bounce");
+	$('#zatchi').velocity('callout.shake');
 });
 
 $('form').on('submit', (e) => {
@@ -116,8 +121,9 @@ $('form').on('submit', (e) => {
 	e.preventDefault();
 	$('#hungerButton').text(`Feed ${val}!`);
 	$('#boredomButton').text(`Play with ${val}!`);
-	$('#sleepinessButton').text(`Put ${val} to bed!`)
-})
+	$('#sleepinessButton').text(`Put ${val} to bed!`);
+	$('#zatchi').velocity('transition.whirlIn');
+});
 
 
 
