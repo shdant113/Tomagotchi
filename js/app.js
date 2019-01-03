@@ -59,6 +59,7 @@ const game = {
 			if (zatchi.sleepiness === 10) {
 				clearInterval(newSleepiness);
 				alert('Your pet died!');
+				this.resetGame();
 			// } 
 			// if (zatchi.sleepiness <= -1) {
 			// 	alert('Your pet is already well rested!')
@@ -74,21 +75,22 @@ const game = {
 			if (zatchi.boredom === 10) {
 				clearInterval(newBoredom);
 				alert('Your pet died!');
+				this.resetGame();
 			// } 
 			// if (zatchi.boredom <= -1) {
 			// 	alert('Your pet does not need to play more!')
 			} else {
 				boredomText.text(`Boredom: ${zatchi.boredom}`);
 			}
-		}, 100000)
+		}, 50000)
 	},
 
 	zatchiAge() {
 		newAge = setInterval(function () {
 			zatchi.age++;
 			ageText.text(`Age: ${zatchi.age}`);
-		}, 600000)
-	}
+		}, 75000)
+	},
 }
 
 game.startGame();
@@ -124,6 +126,18 @@ $('form').on('submit', (e) => {
 	$('#sleepinessButton').text(`Put ${val} to bed!`);
 	$('#zatchi').velocity('transition.whirlIn');
 });
+
+$('#reset').on('click', () => {
+	zatchi.hunger = 0;
+	hungerText.text(`Hunger: ${zatchi.hunger}`);
+	zatchi.sleepiness = 0;
+	sleepinessText.text(`Sleepiness: ${zatchi.sleepiness}`);
+	zatchi.boredom = 0;
+	boredomText.text(`Boredom: ${zatchi.boredom}`);
+	zatchi.age = 0;
+	ageText.text(`Age: ${zatchi.age}`);
+	game.startGame();
+})
 
 
 
