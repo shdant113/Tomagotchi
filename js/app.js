@@ -58,7 +58,7 @@ const game = {
 					$('#prompt').text('');
 				}, 5000);
 			}
-		}, 5000);
+		}, 15000);
 		this.intervals.push(hungerIncrease);
 	},
 
