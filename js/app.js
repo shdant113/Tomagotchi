@@ -59,7 +59,6 @@ const game = {
 			if (zatchi.sleepiness === 10) {
 				clearInterval(newSleepiness);
 				alert('Your pet died!');
-				this.resetGame();
 			// } 
 			// if (zatchi.sleepiness <= -1) {
 			// 	alert('Your pet is already well rested!')
@@ -75,7 +74,6 @@ const game = {
 			if (zatchi.boredom === 10) {
 				clearInterval(newBoredom);
 				alert('Your pet died!');
-				this.resetGame();
 			// } 
 			// if (zatchi.boredom <= -1) {
 			// 	alert('Your pet does not need to play more!')
@@ -136,7 +134,6 @@ $('#reset').on('click', () => {
 	boredomText.text(`Boredom: ${zatchi.boredom}`);
 	zatchi.age = 0;
 	ageText.text(`Age: ${zatchi.age}`);
-	game.startGame();
 })
 
 
