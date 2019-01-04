@@ -58,7 +58,7 @@ const game = {
 					$('#prompt').text('');
 				}, 5000);
 			}
-		}, 15000);
+		}, 3000);
 		this.intervals.push(hungerIncrease);
 	},
 
@@ -85,7 +85,7 @@ const game = {
 					$('#prompt').text('');
 				}, 5000);
 			}
-		}, 20000);
+		}, 4000);
 		this.intervals.push(sleepinessIncrease);
 	},
 
@@ -112,7 +112,7 @@ const game = {
 					$('#prompt').text('');
 				}, 5000);
 			}
-		}, 25000)
+		}, 5000)
 		this.intervals.push(boredomIncrease);
 	},
  
@@ -145,8 +145,6 @@ const game = {
 		this.intervals.push(ageIncrease);
 	}
 }
-
-game.startGame();
 
 $('#hungerButton').on('click', () => {
 	if (zatchi.hunger > 0) {
@@ -218,6 +216,7 @@ $('#form1').on('submit', (e) => {
 		val = 'your pet';
 	}
 	e.preventDefault();
+	game.startGame();
 	$('#form1').hide();
 });
 
