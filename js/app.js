@@ -35,27 +35,13 @@ const game = {
 		this.zatchiBoredom();
 		this.zatchiAge();
 	},
-	reset() {
-		zatchi.hunger = 5;
-		hungerText.text(`Hunger: ${zatchi.hunger}`);
-		zatchi.sleepiness = 5;
-		sleepinessText.text(`Sleepiness: ${zatchi.sleepiness}`);
-		zatchi.boredom = 5;
-		boredomText.text(`Boredom: ${zatchi.boredom}`);
-		zatchi.age = 0;
-		ageText.text(`Age: ${zatchi.age}`);
-		this.intervals.forEach(clearInterval);
-		this.intervals = [];
-		this.startGame();
-		$('body').css('background-image', 'url(https://ak4.picdn.net/shutterstock/videos/11863184/thumb/1.jpg')
-	},
 	zatchiHunger() {
 		let hungerIncrease = setInterval(function () {
 			zatchi.hunger++;
 			hungerText.text(`Hunger: ${zatchi.hunger}`)
 			if (zatchi.hunger === 10) {
 				$('body').css('background-image', 'url(https://dumielauxepices.net/sites/default/files/gothic-clipart-graveyard-624150-7524911.jpg)');
-				$('#prompt').text(`${val} died! The game will reload in 5 seconds.`)
+				$('#prompt').text(`Your pet died! The game will reload shortly.`);
 				setTimeout(function () {
 					zatchi.hunger = 5;
 					hungerText.text(`Hunger: ${zatchi.hunger}`);
@@ -82,7 +68,7 @@ const game = {
 			sleepinessText.text(`Sleepiness: ${zatchi.sleepiness}`);
 			if (zatchi.sleepiness === 10) {
 				$('body').css('background-image', 'url(https://dumielauxepices.net/sites/default/files/gothic-clipart-graveyard-624150-7524911.jpg)');
-				$('#prompt').text(`${val} died! The game will reload in 5 seconds.`)
+				$('#prompt').text(`Your pet died! The game will reload shortly.`);
 				setTimeout(function () {
 					zatchi.hunger = 5;
 					hungerText.text(`Hunger: ${zatchi.hunger}`);
@@ -109,7 +95,7 @@ const game = {
 			boredomText.text(`Boredom: ${zatchi.boredom}`);
 			if (zatchi.boredom === 10) {
 				$('body').css('background-image', 'url(https://dumielauxepices.net/sites/default/files/gothic-clipart-graveyard-624150-7524911.jpg)');
-				$('#prompt').text(`${val} died! The game will reload in 5 seconds.`)
+				$('#prompt').text(`${val} died! The game will reload shortly.`);
 				setTimeout(function () {
 					zatchi.hunger = 5;
 					hungerText.text(`Hunger: ${zatchi.hunger}`);
