@@ -54,10 +54,25 @@ const game = {
 			zatchi.hunger++;
 			hungerText.text(`Hunger: ${zatchi.hunger}`)
 			if (zatchi.hunger === 10) {
-				clearInterval(hungerIncrease);
-				alert('Your pet died!');
+				$('body').css('background-image', 'url(https://dumielauxepices.net/sites/default/files/gothic-clipart-graveyard-624150-7524911.jpg)');
+				$('#prompt').text(`${val} died! The game will reload in 5 seconds.`)
+				setTimeout(function () {
+					zatchi.hunger = 5;
+					hungerText.text(`Hunger: ${zatchi.hunger}`);
+					zatchi.sleepiness = 5;
+					sleepinessText.text(`Sleepiness: ${zatchi.sleepiness}`);
+					zatchi.boredom = 5;
+					boredomText.text(`Boredom: ${zatchi.boredom}`);
+					zatchi.age = 0;
+					ageText.text(`Age: ${zatchi.age}`);
+					game.intervals.forEach(clearInterval);
+					game.intervals = [];
+					game.startGame();
+					$('body').css('background-image', 'url(https://ak4.picdn.net/shutterstock/videos/11863184/thumb/1.jpg')
+					$('#prompt').text('');
+				}, 5000);
 			}
-		}, 10000);
+		}, 5000);
 		this.intervals.push(hungerIncrease);
 	},
 
@@ -66,8 +81,23 @@ const game = {
 			zatchi.sleepiness++;
 			sleepinessText.text(`Sleepiness: ${zatchi.sleepiness}`);
 			if (zatchi.sleepiness === 10) {
-				clearInterval(sleepinessIncrease);
-				alert('Your pet died!');
+				$('body').css('background-image', 'url(https://dumielauxepices.net/sites/default/files/gothic-clipart-graveyard-624150-7524911.jpg)');
+				$('#prompt').text(`${val} died! The game will reload in 5 seconds.`)
+				setTimeout(function () {
+					zatchi.hunger = 5;
+					hungerText.text(`Hunger: ${zatchi.hunger}`);
+					zatchi.sleepiness = 5;
+					sleepinessText.text(`Sleepiness: ${zatchi.sleepiness}`);
+					zatchi.boredom = 5;
+					boredomText.text(`Boredom: ${zatchi.boredom}`);
+					zatchi.age = 0;
+					ageText.text(`Age: ${zatchi.age}`);
+					game.intervals.forEach(clearInterval);
+					game.intervals = [];
+					game.startGame();
+					$('body').css('background-image', 'url(https://ak4.picdn.net/shutterstock/videos/11863184/thumb/1.jpg')
+					$('#prompt').text('');
+				}, 5000);
 			}
 		}, 20000);
 		this.intervals.push(sleepinessIncrease);
@@ -78,9 +108,22 @@ const game = {
 			zatchi.boredom++;
 			boredomText.text(`Boredom: ${zatchi.boredom}`);
 			if (zatchi.boredom === 10) {
-				alert('Your pet died!');
+				$('body').css('background-image', 'url(https://dumielauxepices.net/sites/default/files/gothic-clipart-graveyard-624150-7524911.jpg)');
+				$('#prompt').text(`${val} died! The game will reload in 5 seconds.`)
 				setTimeout(function () {
-					this.reset();
+					zatchi.hunger = 5;
+					hungerText.text(`Hunger: ${zatchi.hunger}`);
+					zatchi.sleepiness = 5;
+					sleepinessText.text(`Sleepiness: ${zatchi.sleepiness}`);
+					zatchi.boredom = 5;
+					boredomText.text(`Boredom: ${zatchi.boredom}`);
+					zatchi.age = 0;
+					ageText.text(`Age: ${zatchi.age}`);
+					game.intervals.forEach(clearInterval);
+					game.intervals = [];
+					game.startGame();
+					$('body').css('background-image', 'url(https://ak4.picdn.net/shutterstock/videos/11863184/thumb/1.jpg')
+					$('#prompt').text('');
 				}, 5000);
 			}
 		}, 25000)
