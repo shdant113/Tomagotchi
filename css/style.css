@@ -18,7 +18,7 @@ html {
   height: 100%;
 }
 
-h1, h2, #input-space, #submit-button {
+h1, h2, input, #prompt {
 	font-family: 'Staatliches', cursive;
 }
 h2 {
@@ -36,7 +36,7 @@ h2 {
 	font-size: 20px;
 }
 
-#input-space {
+input[type=submit], input[type=text] {
 	margin: 10px 0;
 	width: 300px;
 	height: 100px;
