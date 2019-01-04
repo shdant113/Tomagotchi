@@ -25,10 +25,6 @@ let ageText = $('#age');
 let val = ($('#input-space').val());
 
 const game = {
-	newHunger: zatchi.hunger,
-	newSleepiness: zatchi.sleepiness,
-	newBoredom: zatchi.boredom,
-	newAge: zatchi.age,
 	intervals: [],
 	startGame() {
 		// name your pet!
@@ -39,7 +35,20 @@ const game = {
 		this.zatchiBoredom();
 		this.zatchiAge();
 	},
-	// newHunger.setInterval(zatchiHunger, 120000);
+	reset() {
+		zatchi.hunger = 5;
+		hungerText.text(`Hunger: ${zatchi.hunger}`);
+		zatchi.sleepiness = 5;
+		sleepinessText.text(`Sleepiness: ${zatchi.sleepiness}`);
+		zatchi.boredom = 5;
+		boredomText.text(`Boredom: ${zatchi.boredom}`);
+		zatchi.age = 0;
+		ageText.text(`Age: ${zatchi.age}`);
+		this.intervals.forEach(clearInterval);
+		this.intervals = [];
+		this.startGame();
+		$('body').css('background-image', 'url(https://ak4.picdn.net/shutterstock/videos/11863184/thumb/1.jpg')
+	},
 	zatchiHunger() {
 		let hungerIncrease = setInterval(function () {
 			zatchi.hunger++;
@@ -69,8 +78,10 @@ const game = {
 			zatchi.boredom++;
 			boredomText.text(`Boredom: ${zatchi.boredom}`);
 			if (zatchi.boredom === 10) {
-				clearInterval(boredomIncrease);
 				alert('Your pet died!');
+				setTimeout(function () {
+					this.reset();
+				}, 5000);
 			}
 		}, 25000)
 		this.intervals.push(boredomIncrease);
@@ -103,9 +114,6 @@ const game = {
 			}
 		}, 17000)
 		this.intervals.push(ageIncrease);
-	},
-	reset() {
-
 	}
 }
 
@@ -117,6 +125,9 @@ $('#hungerButton').on('click', () => {
 		hungerText.text(`Hunger: ${zatchi.hunger}`);
 		$('#zatchi').velocity('callout.tada');
 		$('body').css('background-image', 'url(https://previews.123rf.com/images/klavapuk/klavapuk1103/klavapuk110300009/9178490-seamless-background-with-vegetables-and-fruit.jpg)')
+		setTimeout(function () {
+		$('body').css('background-image', 'url(https://ak4.picdn.net/shutterstock/videos/11863184/thumb/1.jpg')
+		}, 5000);
 	} else {
 		if (val !== '') {
 			$('#prompt').text(`${val} is full!`);
@@ -134,6 +145,10 @@ $('#sleepinessButton').on('click', (e) => {
 		// $('body').css('background-color','gray');
 		$('#zatchi').velocity('transition.whirlOut');
 		$('#zatchi').velocity('transition.swoopIn');
+		$('body').css('background-image', 'url(https://images.cdn4.stockunlimited.net/preview1300/night-sky-background_1533838.jpg)');
+		setTimeout(function () {
+		$('body').css('background-image', 'url(https://ak4.picdn.net/shutterstock/videos/11863184/thumb/1.jpg')
+		}, 5000);
 	} else {
 		if (val !== '') {
 			$('#prompt').text(`${val} doesn't want to sleep anymore!`);
@@ -149,6 +164,10 @@ $('#boredomButton').on('click', () => {
 		boredomText.text(`Boredom: ${zatchi.boredom}`);
 		$('#zatchi').velocity("callout.bounce");
 		$('#zatchi').velocity('callout.shake');
+		$('body').css('background-image', 'url(https://png.pngtree.com/thumb_back/fw800/back_pic/04/22/53/5958328d8723792.jpg)')
+		setTimeout(function () {
+		$('body').css('background-image', 'url(https://ak4.picdn.net/shutterstock/videos/11863184/thumb/1.jpg')
+		}, 5000);
 	} else {
 		if (val !== '') {
 			$('#prompt').text(`${val} doesn't need to play anymore!`);
@@ -185,6 +204,7 @@ $('#reset').on('click', () => {
 	game.intervals.forEach(clearInterval);
 	game.intervals = [];
 	game.startGame();
+	$('body').css('background-image', 'url(https://ak4.picdn.net/shutterstock/videos/11863184/thumb/1.jpg')
 })
 
 
