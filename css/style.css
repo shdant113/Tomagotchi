@@ -1,7 +1,8 @@
 body {
 	margin: 0 0 0 0;
 	overflow: auto;
-	background: linear-gradient(150deg, blue, 30%, white);
+	background-image: url(https://ak4.picdn.net/shutterstock/videos/11863184/thumb/1.jpg);
+	background-size: cover;
 	display: block;
 	text-align: center;
 	min-width: 500px;
@@ -21,9 +22,9 @@ html {
 h1, h2, input, #prompt {
 	font-family: 'Staatliches', cursive;
 }
+
 h2 {
 	margin: 10px 0;
-	background: linear-gradient(30deg, blue, 30%, white);
 	padding: 3px;
 	border-radius: 20px;
 	margin: 0 30%;
