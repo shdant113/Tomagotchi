@@ -29,6 +29,7 @@ const game = {
 	newSleepiness: zatchi.sleepiness,
 	newBoredom: zatchi.boredom,
 	newAge: zatchi.age,
+	intervals: [],
 	startGame() {
 		// name your pet!
 		// display (pet's name) + (statistics)
@@ -47,7 +48,8 @@ const game = {
 				clearInterval(hungerIncrease);
 				alert('Your pet died!');
 			}
-		}, 20000)
+		}, 20000);
+		this.intervals.push(hungerIncrease);
 	},
 
 	zatchiSleepiness() {
@@ -58,7 +60,8 @@ const game = {
 				clearInterval(sleepinessIncrease);
 				alert('Your pet died!');
 			}
-		}, 40000)
+		}, 40000);
+		this.intervals.push(sleepinessIncrease);
 	},
 
 	zatchiBoredom() {
@@ -70,6 +73,7 @@ const game = {
 				alert('Your pet died!');
 			}
 		}, 50000)
+		this.intervals.push(boredomIncrease);
 	},
  
 	zatchiAge() {
@@ -98,7 +102,11 @@ const game = {
 				}
 			}
 		}, 25000)
+		this.intervals.push(ageIncrease);
 	},
+	reset() {
+
+	}
 }
 
 game.startGame();
@@ -173,6 +181,7 @@ $('#reset').on('click', () => {
 	boredomText.text(`Boredom: ${zatchi.boredom}`);
 	zatchi.age = 0;
 	ageText.text(`Age: ${zatchi.age}`);
+	game.intervals.forEach(clearInterval);
 })
 
 
