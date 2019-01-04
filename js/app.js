@@ -82,12 +82,21 @@ const game = {
 			}
 		}, 50000)
 	},
-
+ 
 	zatchiAge() {
 		newAge = setInterval(function () {
 			zatchi.age++;
 			ageText.text(`Age: ${zatchi.age}`);
-		}, 75000)
+			if (zatchi.age === 5) {
+				$('#zatchi').attr('src', 'https://vignette.wikia.nocookie.net/tamagotchi/images/7/7e/Bill_tah.png/revision/latest/scale-to-width-down/50?cb=20150402023101');
+			}
+			if (zatchi.age === 10) {
+				$('#zatchi').attr('src', 'https://vignette.wikia.nocookie.net/tamagotchi/images/4/47/Charitchi_tah.png/revision/latest/scale-to-width-down/50?cb=20140429220545');
+			}
+			if (zatchi.age === 15) {
+				$('#zatchi').attr('src', 'https://vignette.wikia.nocookie.net/tamagotchi/images/1/1e/Zuccitchi_tah.png/revision/latest/scale-to-width-down/50?cb=20140605155426');
+			}
+		}, 25000)
 	},
 }
 
