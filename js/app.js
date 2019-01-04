@@ -2,9 +2,9 @@
 
 class Tomagatchi {
 	constructor() {
-		this.hunger = 0;
-		this.sleepiness = 0;
-		this.boredom = 0;
+		this.hunger = 5;
+		this.sleepiness = 5;
+		this.boredom = 5;
 		this.age = 0;
 	}
 }
@@ -108,7 +108,7 @@ const game = {
 					// do not morph
 				}
 			}
-		}, 2500)
+		}, 25000)
 	},
 }
 
@@ -121,23 +121,29 @@ $('#hungerButton').on('click', () => {
 });
 
 $('#sleepinessButton').on('click', (e) => {
-	zatchi.sleepiness--;
-	sleepinessText.text(`Sleepiness: ${zatchi.sleepiness}`);
-	// background-color: gray;
-	// $('body').css('background-color','gray');
-	$('#zatchi').velocity('transition.whirlOut');
-	$('#zatchi').velocity('transition.swoopIn');
+	if (zatchi.sleepiness > 0) {
+		zatchi.sleepiness--;
+		sleepinessText.text(`Sleepiness: ${zatchi.sleepiness}`);
+		// background-color: gray;
+		// $('body').css('background-color','gray');
+		$('#zatchi').velocity('transition.whirlOut');
+		$('#zatchi').velocity('transition.swoopIn');
+	}
 });
 
 $('#boredomButton').on('click', () => {
-	zatchi.boredom--;
-	boredomText.text(`Boredom: ${zatchi.boredom}`);
-	$('#zatchi').velocity("callout.bounce");
-	$('#zatchi').velocity('callout.shake');
+	if (zatchi.boredom > 0) {
+		zatchi.boredom--;
+		boredomText.text(`Boredom: ${zatchi.boredom}`);
+		$('#zatchi').velocity("callout.bounce");
+		$('#zatchi').velocity('callout.shake');
+	} else {
+		$('#prompt').text(`${val} doesn't need to play anymore!`);
+	}
 });
 
 $('form').on('submit', (e) => {
-	let val = ($('#input-space').val())
+	let val = ($('#input-space').val());
 	$('h1').text(val);
 	e.preventDefault();
 	$('#hungerButton').text(`Feed ${val}!`);
