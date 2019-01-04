@@ -56,9 +56,9 @@ const game = {
 					game.startGame();
 					$('body').css('background-image', 'url(https://ak4.picdn.net/shutterstock/videos/11863184/thumb/1.jpg')
 					$('#prompt').text('');
-				}, 5000);
+				}, 3000);
 			}
-		}, 3000);
+		}, 3100);
 		this.intervals.push(hungerIncrease);
 	},
 
