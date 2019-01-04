@@ -83,7 +83,7 @@ const game = {
 					game.startGame();
 					$('body').css('background-image', 'url(https://ak4.picdn.net/shutterstock/videos/11863184/thumb/1.jpg')
 					$('#prompt').text('');
-				}, 5000);
+				}, 3000);
 			}
 		}, 4000);
 		this.intervals.push(sleepinessIncrease);
@@ -110,7 +110,7 @@ const game = {
 					game.startGame();
 					$('body').css('background-image', 'url(https://ak4.picdn.net/shutterstock/videos/11863184/thumb/1.jpg')
 					$('#prompt').text('');
-				}, 5000);
+				}, 3000);
 			}
 		}, 5000)
 		this.intervals.push(boredomIncrease);
