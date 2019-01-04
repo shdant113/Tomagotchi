@@ -88,15 +88,27 @@ const game = {
 			zatchi.age++;
 			ageText.text(`Age: ${zatchi.age}`);
 			if (zatchi.age === 5) {
-				$('#zatchi').attr('src', 'https://vignette.wikia.nocookie.net/tamagotchi/images/7/7e/Bill_tah.png/revision/latest/scale-to-width-down/50?cb=20150402023101');
+				if (confirm(`Would you like to morph your pet?`)) {
+					$('#zatchi').attr('src', 'https://vignette.wikia.nocookie.net/tamagotchi/images/7/7e/Bill_tah.png/revision/latest/scale-to-width-down/50?cb=20150402023101');
+				} else {
+					// do not morph
+				}
 			}
 			if (zatchi.age === 10) {
-				$('#zatchi').attr('src', 'https://vignette.wikia.nocookie.net/tamagotchi/images/4/47/Charitchi_tah.png/revision/latest/scale-to-width-down/50?cb=20140429220545');
+				if (confirm(`Would you like to morph your pet?`)) {
+					$('#zatchi').attr('src', 'https://vignette.wikia.nocookie.net/tamagotchi/images/4/47/Charitchi_tah.png/revision/latest/scale-to-width-down/50?cb=20140429220545');
+				} else {
+					// do not morph
+				}
 			}
 			if (zatchi.age === 15) {
-				$('#zatchi').attr('src', 'https://vignette.wikia.nocookie.net/tamagotchi/images/1/1e/Zuccitchi_tah.png/revision/latest/scale-to-width-down/50?cb=20140605155426');
+				if (confirm(`Would you like to morph your pet?`)) {
+					$('#zatchi').attr('src', 'https://vignette.wikia.nocookie.net/tamagotchi/images/1/1e/Zuccitchi_tah.png/revision/latest/scale-to-width-down/50?cb=20140605155426');
+				} else {
+					// do not morph
+				}
 			}
-		}, 25000)
+		}, 2500)
 	},
 }
 
