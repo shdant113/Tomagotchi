@@ -48,7 +48,7 @@ const game = {
 				clearInterval(hungerIncrease);
 				alert('Your pet died!');
 			}
-		}, 20000);
+		}, 10000);
 		this.intervals.push(hungerIncrease);
 	},
 
@@ -60,7 +60,7 @@ const game = {
 				clearInterval(sleepinessIncrease);
 				alert('Your pet died!');
 			}
-		}, 40000);
+		}, 20000);
 		this.intervals.push(sleepinessIncrease);
 	},
 
@@ -72,7 +72,7 @@ const game = {
 				clearInterval(boredomIncrease);
 				alert('Your pet died!');
 			}
-		}, 50000)
+		}, 25000)
 		this.intervals.push(boredomIncrease);
 	},
  
@@ -101,7 +101,7 @@ const game = {
 					// do not morph
 				}
 			}
-		}, 25000)
+		}, 17000)
 		this.intervals.push(ageIncrease);
 	},
 	reset() {
@@ -116,6 +116,7 @@ $('#hungerButton').on('click', () => {
 		zatchi.hunger--;
 		hungerText.text(`Hunger: ${zatchi.hunger}`);
 		$('#zatchi').velocity('callout.tada');
+		$('body').css('background-image', 'url(https://previews.123rf.com/images/klavapuk/klavapuk1103/klavapuk110300009/9178490-seamless-background-with-vegetables-and-fruit.jpg)')
 	} else {
 		if (val !== '') {
 			$('#prompt').text(`${val} is full!`);
@@ -182,6 +183,8 @@ $('#reset').on('click', () => {
 	zatchi.age = 0;
 	ageText.text(`Age: ${zatchi.age}`);
 	game.intervals.forEach(clearInterval);
+	game.intervals = [];
+	game.startGame();
 })
 
 

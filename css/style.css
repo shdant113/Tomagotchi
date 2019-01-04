@@ -19,7 +19,7 @@ html {
   height: 100%;
 }
 
-h1, h2, input, #prompt, .buttons {
+h1, input, #prompt, .buttons {
 	font-family: 'Staatliches', cursive;
 }
 
@@ -27,15 +27,15 @@ h1 {
 	font-size: 50px;
 }
 
-h2 {
-	margin: 10px 0;
-	padding: 3px;
-	border-radius: 20px;
+#scores {
+	background-color: white;
+	width: 40%;
 	margin: 0 30%;
+	border: 3px solid black;
+	border-radius: 20px;
 }
 
-#statistics {
-	margin: 10px 0;
+#statistics, #scoreboard {
 	width: 100%;
 	font-family: 'Indie Flower', cursive;
 	font-size: 20px;
@@ -55,7 +55,14 @@ input, .buttons {
 	padding: 5px;
 }
 
-footer {
-	position: absolute;
-	margin: 200px 10px 0 10px
+#zatchi {
+	display: block;
+	margin: 20px auto;
+}
+
+#allButtons {
+	width: 60%;
+	display: inline-flex;
+	justify-content: space-evenly;
+	margin: 0 20px;
 }
